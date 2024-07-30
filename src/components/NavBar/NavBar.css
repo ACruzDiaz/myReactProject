@@ -1,0 +1,18 @@
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: black;
+  height: 3rem;
+  width: 100%;
+.logo{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: larger;
+  font-weight: bolder;
+  color: yellow;
+  background-color: purple;
+  border-radius: 89% 11% 84% 16% / 88% 6% 94% 12% ;
+
+}
+}
