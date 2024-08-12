@@ -1,22 +1,22 @@
+
 export const navItems = [
   {
-    text: 'Inicio',
-    href: '/',
-    svg: ''
+    id : 'searchBtn',
+    text: '',
+    href: '/favoritos',
+    svg: '/search.svg'
   },
   {
-    text: 'Tienda',
-    href: '/tienda',
-    svg: ''
+    id : 'favBtn',
+    text: '',
+    href: '#favoritos',
+    svg: '/favoritos.svg'
   },
   {
-    text: 'Promociones',
-    href: '/promociones',
-    svg: ''
+    id : 'bolsaBtn',
+    text: '',
+    href: '/#bolsa',
+    svg: '/shopping-bag.svg'
   },
-  {
-    text: 'Contacto',
-    href: '/contacto',
-    svg: ''
-  } 
+
 ]

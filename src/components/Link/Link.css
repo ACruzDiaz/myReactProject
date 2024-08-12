@@ -1,28 +1,49 @@
 a{
-  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: black;
   font-size: 1rem;
   text-decoration: none;
-  padding: 0.5rem 1rem;
   margin: 0.5rem;
   border-radius: 1rem;
-}
-a:hover {
-  color:rgb(154, 120, 154); 
-  text-decoration:none; 
-  cursor:pointer;  
+  height: 48px;
+  & > div.iconCount{
+    position: relative;
+    overflow: hidden;
+    height: 2.5rem;
+    width: 2.5rem;
+    & > img{
+      z-index: 10;
+      height: 100%;
+    }
+    & > span{
+      z-index: 20;
+      /* background-color: var(--accent-color); */
+      background-color: red;
+      border-radius: 0.5rem;
+      width: auto;
+      padding: 0 0.25rem;
+      height: 1rem;
+      font-size: small;
+      font-weight: bold;
+      color: white;
+      position: absolute;
+      top: 0;
+      right: 1px;
+      text-align: center;
+      
+      
+    }
+  }
 }
 
-svg{
-  height: 1rem;
-  width: auto;
-  object-fit: contain;
-}
 
 .filled{
   background-color: darkgreen;
 }
 
 .bordered{
-
   border: 1px solid darkgray;
 }
+

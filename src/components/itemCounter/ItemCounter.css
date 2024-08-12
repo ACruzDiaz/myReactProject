@@ -1,0 +1,42 @@
+button{
+  background-color: transparent;
+}
+.counterContainer{
+  display: flex;
+  flex-direction: row-reverse;
+  width: min-content;
+  height: auto;
+  margin: 0.5rem;
+  .addBtn{
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    width: 1rem;
+    padding: 0.25rem 0.75rem;
+    font-size: var(--font-large);
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 0.125rem;
+    text-align: center;
+  }
+  .subBtn{
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    width: 1rem;
+    padding: 0.25rem 0.75rem;
+    font-size: var(--font-large);
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 0.125rem;
+    text-align: center;
+  }
+  
+  .amountDis{
+    color: var(--secondary-color);
+    width: 1rem;
+    padding: 0.25rem 1rem;
+    font-size: var(--font-large);
+    font-weight: 700;
+    border-radius: 0.125rem;
+    text-align: center;
+  }
+}

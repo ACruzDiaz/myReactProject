@@ -1,15 +1,80 @@
 article{
+  position: relative;
   padding: 1rem 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
   align-items: center;
-  background-color: lightblue;
-  width: 300px;
+  background-color: transparent;
+  width: 200px;
+  height: auto;
+
+  p{
+    margin-top: 1.125rem;
+  }
   img{
     width: 100%;
     height: 300px;
-    object-fit: contain;
+    object-fit: cover;
+  }
+
+  .categoryProductCard{
+    position: absolute;
+    top: 272px;
+    background-color: var(--accent-color);
+    color: white;
+    min-width: 5rem;
+    padding: 0.5rem;
+    font-size: var(--font-large);
+    text-align: center;
+
+  }
+  div {
+    display: flex;
+    align-items: center;
+    height: 96px;
+    .titleProductCard{
+      margin-top: 2rem;
+      margin-left:  0.5rem;
+      margin-right: 0.5rem;
+      color: var(--secondary-color);
+      font-size: var(--font-large);
+      font-weight: 700;
+      text-align: center;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
+
+    }
+  }
+  .authorProductCard{
+    font-size: var(font-medium);
+    color: var(--opacity-color);
+    text-align: center;
+    margin-left:  0.5rem;
+    margin-right: 0.5rem;
+  }
+  .editorialProductCard{
+    font-size: var(--font-medium);
+    color: var(--secondary-color);
+    width: 90%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    margin-left:  0.5rem;
+    margin-right: 0.5rem;
+    
+  }
+  .priceProductCard{
+    font-size: var(--font-xlarge);
+    font-weight: 700;
+    text-align: center;
+    color: var(--secondary-color);
+    margin-left:  0.5rem;
+    margin-right: 0.5rem;
   }
 }
 
