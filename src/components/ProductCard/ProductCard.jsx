@@ -2,8 +2,9 @@ import './ProductCard.css'
 import {Link} from 'react-router-dom'
 const ProductCard = (props) =>{
   return <article>
-    <img src={props.image} alt={props.title} />
-
+    <Link to= {`/detail/${props.id}`}>
+      <img src={props.image} alt={props.title} />
+    </Link>
     <Link to = {`/categories/${props.category}`} className='categoryProductCard'>
       {props.category} 
     </Link>
