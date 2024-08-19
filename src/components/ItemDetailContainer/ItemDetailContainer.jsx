@@ -1,17 +1,19 @@
 import './ItemDetailContainer.css'
 import ItemDetail from '../ItemDatail/ItemDetail.jsx';
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 const dbRef = '/bookList.json';
 
 const ItemDetailContainer = () => {
-
+  const {itemID} = useParams();
+  console.log(itemID);
   const [item, setItem] = useState(null);
 
   useEffect(()=>{
 
         fetch(dbRef)
         .then((res) => res.json())
-        .then(data =>  data.books.find(el => el['id'] === 'hhddttd'))
+        .then(data =>  data.books.find(el => el['id'] === itemID))
         .then(searchR => {
           setItem(searchR);
         })
@@ -19,7 +21,7 @@ const ItemDetailContainer = () => {
         
         
     
-  }, [])
+  }, [itemID])
 
 
   return <section>
@@ -32,7 +34,9 @@ const ItemDetailContainer = () => {
     author ={item.author}
     category = {item.category}
     editorial = {item.editorial} 
-    price = {item.price} />
+    price = {item.price}
+    description = {item.description}
+    stock = {item.stock} />
     }
   </section>
 }

@@ -20,13 +20,14 @@ article{
 
   .categoryProductCard{
     position: absolute;
-    top: 272px;
+    top: 288px;
     background-color: var(--accent-color);
     color: white;
     min-width: 5rem;
     padding: 0.5rem;
     font-size: var(--font-large);
     text-align: center;
+    justify-content: center;
 
   }
   div {
@@ -38,7 +39,7 @@ article{
       margin-left:  0.5rem;
       margin-right: 0.5rem;
       color: var(--secondary-color);
-      font-size: var(--font-large);
+      font-size: var(--font-medium);
       font-weight: 700;
       text-align: center;
       overflow: hidden;

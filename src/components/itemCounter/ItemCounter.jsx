@@ -1,19 +1,10 @@
-import { useState } from 'react'
+import useCounter from '../../hooks/useCounter'
 import './ItemCounter.css'
 
-const ItemCounter = ({stockValue}) =>{
-  const [count, setCount] = useState(0);
 
-  const countUp = () => {
-    if(count>=0 && count<=stockValue){
-      setCount(() => count+1);
-    }
-  }
-  const countDown = () => {
-    if(count > 0){
-      setCount(() => count-1);
-    }
-  }
+const ItemCounter = ({stockValue}) =>{
+
+  const {count, countDown, countUp, reset} = useCounter(1, stockValue)
 
   return(
     <div className='counterContainer'>

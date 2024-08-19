@@ -12,7 +12,7 @@ nav{
     gap: 1rem;
     margin: 0 0.75rem;
   }
-  span.logo{
+  .logo{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: xx-large;
     font-weight: bolder;
