@@ -4,38 +4,30 @@ import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom';
 //import { itemList } from '../../data/bookList'
 import Page404 from '../Page404/Page404';
-const dbRef = '/bookList.json';
+import useFetch from '../../hooks/useFetch';
+
 
 const ProductContainer = () => {
-
+  const dbRef = '/bookList.json';
   const {categorySlug} = useParams();
   const [items, setItems] = useState(null);
-
+  const {data, isPending, error} = useFetch(dbRef)
   useEffect(()=>{
-
-        fetch(dbRef)
-        .then((res) => res.json())
-        .then(data => {
-
+    console.log(isPending)
+    if(!isPending){
             if(categorySlug){
               const filterBooks = data.books.filter(li => li.category === categorySlug);
-                console.log(filterBooks)
-                setItems(filterBooks);
-
+              setItems(filterBooks);
               
             }else{
               setItems(data.books);
             }
-        })
-          .catch((error) => console.log(error));
-        
-        
-    
-  }, [categorySlug])
+          }
+  }, [categorySlug,data])
 
 
   return <section>
-    {items && items.length > 0? items.map((book) => (<ProductCard 
+    {items && items.length > 0 && items.map((book) => (<ProductCard 
     key={book.id}
     id= {book.id}
     image = {book.image} 
@@ -43,7 +35,7 @@ const ProductContainer = () => {
     author ={book.author}
     category = {book.category}
     editorial = {book.editorial} 
-    price = {book.price} />)) : <Page404/>
+    price = {book.price} />)) 
     }
   </section>
 

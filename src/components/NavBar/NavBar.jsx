@@ -3,7 +3,10 @@ import Link from "../Link/Link"
 import { navItems } from '../../data/NavList'
 import CartIcon from '../CartIcon/CartIcon'
 import { Link as LinkReact } from 'react-router-dom'
+
+
 const NavBar = () => {
+  
   return <nav>
     <LinkReact to= '/' className='logo'>Libro Tienda</LinkReact>
     <ul>
@@ -20,3 +23,4 @@ const NavBar = () => {
     </nav>
 }
 export default NavBar
+

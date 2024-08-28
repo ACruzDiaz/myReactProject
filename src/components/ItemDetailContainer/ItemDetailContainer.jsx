@@ -6,7 +6,6 @@ const dbRef = '/bookList.json';
 
 const ItemDetailContainer = () => {
   const {itemID} = useParams();
-  console.log(itemID);
   const [item, setItem] = useState(null);
 
   useEffect(()=>{

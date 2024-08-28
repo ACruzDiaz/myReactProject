@@ -1,0 +1,10 @@
+.categoryItem{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: var(--font-xlarge);
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+  padding: 0.5rem 1rem;
+
+}
