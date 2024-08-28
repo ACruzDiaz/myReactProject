@@ -9,7 +9,7 @@ const useFetch = (url)=> {
 
       fetch(url)
       .then(res => {
-        console.log(res)
+
         if(!res.ok){
           throw new Error( !res.statusText ? "Ocurrio un error": res.statusText)
         }
@@ -21,7 +21,6 @@ const useFetch = (url)=> {
       })
       .catch(err => {
         setError(err);
-        console.log(err);
       })
 
 

@@ -2,29 +2,18 @@ import './ItemDetailContainer.css'
 import ItemDetail from '../ItemDatail/ItemDetail.jsx';
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-const dbRef = '/bookList.json';
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({data}) => {
   const {itemID} = useParams();
   const [item, setItem] = useState(null);
 
   useEffect(()=>{
-
-        fetch(dbRef)
-        .then((res) => res.json())
-        .then(data =>  data.books.find(el => el['id'] === itemID))
-        .then(searchR => {
-          setItem(searchR);
-        })
-          .catch((error) => console.log(error));
-        
-        
-    
+      const searchRes = data.find(el => el['id'] === itemID)
+      setItem(searchRes);
   }, [itemID])
 
 
   return <section>
-    
     {item &&
     <ItemDetail 
     id= {item.id}

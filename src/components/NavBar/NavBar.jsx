@@ -17,7 +17,9 @@ const NavBar = () => {
         href = {item.href} 
         isFilled = {false} 
         isBordered = {false} 
-        id = {item.id}>
+        id = {item.id}
+        key = {item.id}>
+        
       </Link>)}
     </ul>
     </nav>
