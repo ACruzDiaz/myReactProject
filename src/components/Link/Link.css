@@ -40,7 +40,7 @@ a.linkComponent{
 
 
 .filled{
-  background-color: darkgreen;
+  background-color: var(--secondary-color);
 }
 
 .bordered{

@@ -6,7 +6,9 @@ import { Route, Routes, BrowserRouter} from 'react-router-dom'
 import Footer from './components/Footer/Footer'
 import CategoryContainer from './components/Categories/CategoryContainer/CategoryContainer'
 import BagContainer from './components/bagMain/BagContainer/BagContainer'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef} from 'react'
+import FromClientData from './components/Form/FormClientData'
+import FormClientData from './components/Form/FormClientData'
 const db = [
   {
       id: "qgregg",
@@ -99,18 +101,120 @@ const db = [
 ]
 function App() {
   const [items, setItems] = useState(db);
+  const [bagProducts, setBagProducts] = useState([]);
+  const [bag, setBag] = useState([]);
+  const copy = useRef(items);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+// Acc: El resultado de las operaciones se guarda aqui. 
+// Item: Elemento actual que esta siendo recorrido
+// Index: Posicion del elemento item actual
+// arr: El arreglo que estamos iterando
+
+//Agregar Item a la bolsa
+const addToBag = (newProduct) =>{
+  if(Object.keys(newProduct).length === 0){
+    console.log("Producto Vacio");
+  }
+  else{
+    setBagProducts(prevBagProducts => [...prevBagProducts, newProduct]);
+    setItems(restaItems(items, newProduct));
+  }
+}
+//Borrar Item de la bolsa
+const deleteFromBag = (product) => {
+  setBagProducts(bagProducts.filter( products => products.id !== product.id));
+  setItems(sumarItems(items, product));
+
+}
+//Vaciar la bolsa / Cancelar
+const dumpBag = () => {
+  setItems(copy.current);
+  setBagProducts([]);
+}
+
+// Comprar
+const buyBag = () =>{
+
+}
+
+//Reavastecer productos
+const refillStock = () =>{
+
+}
+
+//CONTAR ITEMS TOTALES
+const countItems = 
+    bag.reduce((acc, item) => {
+    return acc = acc + item.quantity;
+  },0) ;
+
+
+//Get total price
+
+const getTotal = (arrayItems) => {
+  if(arrayItems && arrayItems.length >= 0){
+    return arrayItems.reduce((acc, item)=> {
+      acc = acc + item.quantity*item.producto.price;
+      return acc;
+    }, 0)
+  }else{
+    return 0;
+  }
+}
+
+  const unifyToBag = (bagArray) => {
+    return bagArray.reduce((acc, item) => {
+      acc[item.id] = {...item,quantity: item.quantity + (acc[item.id]?.quantity || 0)};
+      return acc;
+    }, {});
+  }
+
+  const sumarItems = (arrayProducts, bagProduct) => {
+    return arrayProducts.map((products)=> {
+      if(products.id === bagProduct.id){
+        return {
+          ...products,
+          stock: products.stock + bagProduct.quantity
+        }
+      }
+      return products;
+    })
+  }
+  const restaItems = (arrayProducts, newProduct) =>{
+    return arrayProducts.map((dbItems)=> {
+    if(dbItems.id === newProduct.id && (dbItems.stock - newProduct.quantity >= 0)){
+      return {        
+        ...dbItems,
+        stock: dbItems.stock - newProduct.quantity
+      };
+    }
+    return dbItems;
+  });
+};
+
+
+  useEffect(()=>{
+    setBag(Object.values(unifyToBag(bagProducts)));
+  },[bagProducts])
+
+  useEffect(() => {
+    setTotalPrice(getTotal(bag));
+  }, [bag]);
+
 
   return (
     <BrowserRouter>
       <header>
-        <NavBar></NavBar>
+        <NavBar countItems = {countItems}/>
       </header>
       <main>
         <Routes>
           <Route path='/' element = {<ProductContainer data = {items} />}/>
-          <Route path='/detail/:itemID' element = {<ItemDetailContainer data = {items}/>}/>
+          <Route path='/detail/:itemID' element = {<ItemDetailContainer data = {items} addToBag = {addToBag} />}/>
           <Route path='/categories/:categorySlug' element = {<ProductContainer data = {items}/>}/>
-          <Route path='/bolsa' element= {<BagContainer/>}/>
+          <Route path='/bolsa' element= {<BagContainer bagItems ={bag} deleteFromBag = {deleteFromBag} dumbBag={dumpBag} totalPrice = {totalPrice}/>}/>
+          <Route path='/shipping_information' element = {<FormClientData buyBag = {buyBag} totalPrice = {totalPrice} />  }/>
         </Routes>
       </main>
       <footer>

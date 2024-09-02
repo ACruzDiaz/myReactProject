@@ -1,0 +1,48 @@
+.vaciarCarrito{
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  padding: 1rem 1rem;
+  font-size: var(--font-large);
+  border-radius: 0.25rem;
+  border: 1px solid var(--secondary-color);
+  margin: 1rem 1rem 1rem 0;
+}
+
+.comprarCarrito{
+  text-decoration: none;
+  color: var(--secondary-color);
+  background-color: var(--accent-color);
+  padding: 1rem 1rem;
+  font-size: var(--font-large);
+  border-radius: 0.25rem;
+  border: 1px solid var(--secondary-color);
+  margin: 1rem 1rem 1rem 0;
+}
+
+div.bagContainerCostos{
+  display: flex;
+  flex-direction: column;
+  color: var(--secondary-color);
+  & > p.costosEnvio{
+    font-size: var(--font-medium);
+    font-style: italic;
+  }
+  & > p.subtotal{
+    font-size: var(--font-large);
+    & > span{
+      font-weight: 600;
+      color: var(--accent-color);
+      
+    }
+  }
+}
+
+div.bagContainerBotones{
+  display: flex;
+  flex-direction: row;
+}
+
+div.bagContainerBottom{
+  display: flex;
+  flex-direction: column;
+}

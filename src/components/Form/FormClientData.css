@@ -1,0 +1,67 @@
+section.formSection{
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+form.formShipping {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  
+  input[type = "text"], input[type = "tel"]  {
+    border-radius: 0.25rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+    padding: 0.5rem;
+    height: 1rem;
+    width: auto;
+    background-color: gray;
+  }
+  /* input[type = "submit"], input[type = "reset"]  {
+    padding: 1rem;
+    font-weight: 500;
+    font-size: var(--font-large);
+    width: 100%;
+    
+  }
+  input[type = "submit"] {
+    padding: 1rem;
+    font-weight: 500;
+    font-size: var(--font-large);
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+  }
+  input[type = "reset"] {
+    padding: 1rem;
+    font-weight: 500;
+    font-size: var(--font-large);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+  } */
+  label{
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: var(--font-large);
+    width: 100px;
+  }
+  div.inputGroup {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+  }
+  div.submitGroup {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    justify-content: center;
+    padding-bottom: 1rem;
+  }
+
+  
+}
+

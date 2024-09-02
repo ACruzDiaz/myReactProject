@@ -29,7 +29,7 @@ const ProductContainer = ({data}) => {
 
 
 
-  return <section>
+  return <section className='categoryContainer'>
     {products && products.map((book) => (<ProductCard 
     key={book.id}
     id= {book.id}

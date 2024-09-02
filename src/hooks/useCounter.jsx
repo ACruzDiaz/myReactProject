@@ -4,7 +4,7 @@ const UseCounter = (initialState, maxValue) => {
   const [count, setCount] = useState(initialState);
 
   const countUp = () => {
-    if(count>= initialState && count<=maxValue){
+    if(count>= initialState && count<maxValue){
       setCount(() => count+1);
     }
   }
@@ -15,10 +15,14 @@ const UseCounter = (initialState, maxValue) => {
   }
 
   const reset = () => {
-    setCount(() => initialState)
+    setCount(() => initialState);
   }
 
-  return {count, countUp, countDown, reset}
+  const empty = () =>{
+    setCount(() => 0);
+  }
+
+  return {count, countUp, countDown, reset, empty}
 }
 
 export default UseCounter

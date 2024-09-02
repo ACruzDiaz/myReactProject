@@ -1,11 +1,24 @@
+import { useEffect } from 'react'
 import useCounter from '../../hooks/useCounter'
 import './ItemCounter.css'
 
 
-const ItemCounter = ({stockValue}) =>{
+const ItemCounter = ({stockValue, setCount}) =>{
 
-  const {count, countDown, countUp, reset} = useCounter(1, stockValue)
+  const {count, countDown, countUp, reset, empty} = useCounter(1, stockValue)
 
+  useEffect(()=>{
+    if(stockValue === 0){
+      empty();
+    }else{
+      reset();
+    }
+  },[stockValue]);
+
+  useEffect(() => {
+    setCount(count);
+  }, [count]);
+  
   return(
     <div className='counterContainer'>
       <button className='addBtn' onClick={()=>countUp()}>

@@ -18,7 +18,7 @@ const CategoryContainer = ({data}) => {
     }, []);
 
   return (
-    <section>
+    <section className="categoryContainer">
       {Object.entries(category).map(([key, value], index)=> (<CategoryItem categoryName = {key} categoryQuantity = {value} key={index} />))}
     </section>
   )
