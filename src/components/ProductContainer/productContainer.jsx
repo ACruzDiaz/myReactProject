@@ -14,7 +14,7 @@ const ProductContainer = ({data}) => {
 
   useEffect(()=>{
     filterCategory(categorySlug);
-  }, [categorySlug])
+  }, [categorySlug,data])
 
   
   const filterCategory = (category) => {

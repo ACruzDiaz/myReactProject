@@ -26,3 +26,12 @@ body{
 h1{
   color: var(--secondary-color)
 }
+
+.subtotal{
+  color: var(--secondary-color);
+  font-size: var(--font-large);
+  & > span{
+    font-weight: 600;
+    color: var(--accent-color);
+  }
+  }

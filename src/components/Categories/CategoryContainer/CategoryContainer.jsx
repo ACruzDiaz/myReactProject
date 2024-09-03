@@ -15,7 +15,7 @@ const CategoryContainer = ({data}) => {
         }, {});
       };
       setCategory(countOccurrences(categories));
-    }, []);
+    }, [data]);
 
   return (
     <section className="categoryContainer">

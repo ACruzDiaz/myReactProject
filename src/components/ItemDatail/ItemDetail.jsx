@@ -25,7 +25,9 @@ const ItemDetail = (props) => {
           <p className='editorialItemDetail' >{props.editorial}</p>
           <p className='priceItemDetail' >${props.price} </p>
           <ItemCounter stockValue={props.stock} setCount ={setCount}/>
-          <button type='button' onClick={addToBagHandler} className='vaciarCarrito'>Agregar a la bolsa</button>
+          {props.stock > 0 ? 
+          <button type='button' onClick={addToBagHandler} className='vaciarCarrito'>Agregar a la bolsa</button>:
+          <p className='subtotal'>Producto <span>no disponible</span> por el momento</p>}
         </div>
         <p className='descriptionItemDetail' >{props.description}</p>
       </article>

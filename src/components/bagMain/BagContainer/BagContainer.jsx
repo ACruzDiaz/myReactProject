@@ -3,27 +3,14 @@ import { Link } from "react-router-dom"
 import BagItems from "../BagItems/BagItems"
 import './BagContainer.css'
 
+
+
 const BagContainer = ({bagItems, deleteFromBag, dumbBag, totalPrice}) => {
-  // const [totalPrice, setTotalPrice] = useState(0);
 
-  // const getTotal = (arrayItems) => {
-  //   if(arrayItems && arrayItems.length >= 0){
-  //     return arrayItems.reduce((acc, item)=> {
-  //       acc = acc + item.quantity*item.producto.price;
-  //       return acc;
-  //     }, 0)
-  //   }else{
-  //     return 0;
-  //   }
-
-  // }
-
-  // useEffect(() => {
-  //   setTotalPrice(getTotal(bagItems));
-  // }, [bagItems]);
 
   return<>
     <h1>Bolsa de compras</h1>
+    
     {bagItems && bagItems.length > 0 ? bagItems.map((product)=>
     <BagItems
       key={product.id}
