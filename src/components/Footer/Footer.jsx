@@ -1,6 +1,6 @@
 import './Footer.css'
 const Footer = () => {
-  const iconColor = "white";
+  const iconColor = 'var(--secondary-color)';
   const iconWidth = '32';
   const iconHeight = '32';
   const strokeWidth = '2';

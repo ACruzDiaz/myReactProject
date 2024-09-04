@@ -3,12 +3,12 @@ article{
   padding: 1rem 0;
   display: flex;
   flex-direction: column;
-
   align-items: center;
   background-color: transparent;
   width: 200px;
   height: auto;
-
+  box-shadow: 0.5rem 0.5rem 0.8rem rgba(0, 0, 0, 0.2) ;
+  margin-bottom:2rem;
   p{
     margin-top: 1.125rem;
   }

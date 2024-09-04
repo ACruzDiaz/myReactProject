@@ -1,8 +1,8 @@
 article.bagItems{
-  color: aliceblue;
+  color: var(--secondary-color);
   display: flex;
   flex-direction: row;
-  margin: 0rem 0rem 0rem 1rem;
+  margin: 1rem 0rem 1rem 0rem;
   width: 600px;
   height: 250px;
   justify-content: space-between;

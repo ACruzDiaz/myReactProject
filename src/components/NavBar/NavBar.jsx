@@ -3,6 +3,7 @@ import Link from "../Link/Link"
 import { navItems } from '../../data/NavList'
 import { Link as LinkReact } from 'react-router-dom'
 import {useEffect} from 'react';
+import DarkMode from '../DarkMode/DarkMode';
 
 
 const NavBar = ({countItems}) => {
@@ -10,6 +11,7 @@ const NavBar = ({countItems}) => {
   return <nav>
     <LinkReact to= '/' className='logo'>Libro Tienda</LinkReact>
     <ul>
+      <DarkMode/>
       {navItems.map((item) =>
       <Link 
         svg = {item.svg} 
@@ -23,6 +25,7 @@ const NavBar = ({countItems}) => {
         number={countItems }>
       </Link>)}
     </ul>
+    
     </nav>
 }
 export default NavBar
