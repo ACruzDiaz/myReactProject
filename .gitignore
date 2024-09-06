@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-/configuration/fb_config.js
+src/configuration/
 node_modules
 dist
 dist-ssr
