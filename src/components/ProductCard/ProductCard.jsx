@@ -14,7 +14,9 @@ const ProductCard = (props) =>{
         <h2  >{props.title}</h2>
       </Link>
     </div>
-    <p className='authorProductCard' > {props.author} </p>
+    <Link to={`/author/${props.author}`}>
+      <p className='authorProductCard' > {props.author} </p>
+    </Link>
     <p className='editorialProductCard' >{props.editorial}</p>
     <p className='priceProductCard' >{props.price} </p>
   </article>

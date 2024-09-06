@@ -124,6 +124,7 @@ function App() {
       setItems(restaItems(items, newProduct));
     }
   }
+  
   //Borrar Item de la bolsa
   const deleteFromBag = (product) => {
     setBagProducts(bagProducts.filter( products => products.id !== product.id));
@@ -139,7 +140,6 @@ function App() {
 
   // Comprar
   const buyBag = (clientData, total) =>{
-    
     const bagLite = bag.map(({producto, ...rest})=>{
       return rest
     })
@@ -242,6 +242,8 @@ const loadData = () => getDocs(query(collection(fdb,"books"))).then((queryRes)=>
   }else{
     const res =(queryRes.docs.map(doc => ({id:doc.id, ...doc.data()})));
     setItems(res);
+    copy.current = res;
+
     return true;
   }
 });
@@ -251,9 +253,10 @@ const loadData = () => getDocs(query(collection(fdb,"books"))).then((queryRes)=>
   }, []);
 
 
-  useEffect(() => {
-    copy.current = items;
-  }, [items]);
+  // useEffect(() => {
+  //   console.log(copy.current)
+  //   copy.current = items;
+  // }, [items]);
 
   useEffect(()=>{
     setBag(Object.values(unifyToBag(bagProducts)));
@@ -274,6 +277,7 @@ const loadData = () => getDocs(query(collection(fdb,"books"))).then((queryRes)=>
           <Route path='/' element = {<ProductContainer data = {items} />}/>
           <Route path='/detail/:itemID' element = {<ItemDetailContainer data = {items} addToBag = {addToBag} />}/>
           <Route path='/categories/:categorySlug' element = {<ProductContainer data = {items}/>}/>
+          <Route path='/author/:authorSlug' element = {<ProductContainer data = {items}/>}/>
           <Route path='/bolsa' element= {<BagContainer bagItems ={bag} deleteFromBag = {deleteFromBag} dumbBag={dumpBag} totalPrice = {totalPrice}/>}/>
           <Route path='/shipping_information' element = {<FormClientData buyBag = {buyBag} totalPrice = {totalPrice} bag = {bag}/>  }/>
         </Routes>

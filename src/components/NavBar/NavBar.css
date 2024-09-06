@@ -17,9 +17,10 @@ nav{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: xx-large;
     font-weight: bolder;
-    color: var(--accent-color);
-    background-color: var(--secondary-color);
-    border-radius: 89% 11% 84% 16% / 88% 6% 94% 12%;
+    color: white;
+    background-color: black;
+    border-radius: 11% 80% 75% 10% / 48% 45% 37% 48%;
+    padding: 2px;
     margin-left: 1.5rem;
 }
 }

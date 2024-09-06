@@ -2,17 +2,19 @@ import './ItemDetailContainer.css'
 import ItemDetail from '../ItemDatail/ItemDetail.jsx';
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-
+import { collection, doc, getDoc, getDocs, getFirestore,query,where } from 'firebase/firestore';
+import { toast } from 'sonner';
 
 const ItemDetailContainer = ({data, setNewProduct, addToBag}) => {
   const {itemID} = useParams();
   const [item, setItem] = useState(null);
   const [productObject, setProductObject] = useState(null);
 
+
   useEffect(()=>{
       const searchRes = data.find(el => el['id'] === itemID)
       setItem(searchRes);
-  }, [itemID,data])
+  }, [data])
 
   useEffect(()=>{
     if(productObject){

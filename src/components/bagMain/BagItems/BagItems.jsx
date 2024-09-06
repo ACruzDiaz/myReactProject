@@ -11,7 +11,7 @@ const BagItems = ({product, deleteFromBag}) => {
       <p className=''>Cantidad: {product.quantity}</p>
       <p className=''>${Number.parseFloat(product.producto.price).toFixed(2)}</p>
     </div>
-    <div>
+    <div className='deleteContainer'>
       <button className="vaciarCarrito" type="button" onClick={()=>deleteFromBag(product)}>X</button>
     </div>
   </article>);

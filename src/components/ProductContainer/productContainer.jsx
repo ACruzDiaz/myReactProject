@@ -7,21 +7,43 @@ import { toast } from 'sonner';
 const ProductContainer = ({data}) => {
 
   const [loading, setLoading] = useState(true);
-  const {categorySlug} = useParams();
+  const {categorySlug, authorSlug } = useParams();
+
   const [products, setProducts] = useState([]);
+
 
   useEffect(()=>{
     setLoading(true);
-    filterCategory(categorySlug);
-  }, [categorySlug,data])
+    if(categorySlug){
+      filterCategory(categorySlug);
+    }
+    else if(authorSlug){
+      filterAuthor(authorSlug);
+    }else{
+      showAll();
+    }
+  }, [categorySlug, authorSlug])
 
-  
-  const filterCategory = (category) => {
 
+  const showAll = () =>{
     const db = getFirestore();
-    const myProducts = category 
-      ? query(collection(db,"books"), where("category", "==", category))
-      :collection(db,"books");
+    const myProducts = collection(db,"books");
+    getDocs(myProducts).then((res)=>{
+      const newProducts = res.docs.map((doc)=>{
+        const data = doc.data();
+        return {id:doc.id, ...data};
+      });
+      setProducts(newProducts);
+    })
+    .catch(()=>{
+      toast.error("No se pudieron cargar los elementos")
+    }).finally(()=>{
+      setLoading(false);
+    }) 
+  }
+  const filterAuthor = (author) => {
+    const db = getFirestore();
+    const myProducts = query(collection(db,"books"), where("author", "==", author))
 
     getDocs(myProducts).then((res)=>{
       const newProducts = res.docs.map((doc)=>{
@@ -34,14 +56,25 @@ const ProductContainer = ({data}) => {
       toast.error("No se pudieron cargar los elementos")
     }).finally(()=>{
       setLoading(false);
+    })      
+  }
+  
+  const filterCategory = (category) => {
+
+    const db = getFirestore();
+    const myProducts = query(collection(db,"books"), where("category", "==", category));
+    getDocs(myProducts).then((res)=>{
+      const newProducts = res.docs.map((doc)=>{
+        const data = doc.data();
+        return {id:doc.id, ...data};
+      });
+      setProducts(newProducts);
     })
-      // if(category){
-      //   const filteredBooks = data.filter(li => li.category === category);
-      //   setProducts(filteredBooks);  
-      // }else{
-      //   setProducts(data);
-      // }
-      
+    .catch(()=>{
+      toast.error("No se pudieron cargar los elementos")
+    }).finally(()=>{
+      setLoading(false);
+    })      
   }
 
   return <section className='categoryContainer'>

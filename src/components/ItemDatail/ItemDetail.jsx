@@ -1,6 +1,6 @@
 import './ItemDetail.css'
 import  ItemCounter from '../itemCounter/ItemCounter'
-import Link from '../Link/Link'
+import { Link } from 'react-router-dom'
 import { createContext, useState } from 'react'
 
 
@@ -21,7 +21,9 @@ const ItemDetail = (props) => {
         <img className='imgItemDetail' src={props.image} alt={props.title} />
         <div className='containerItemDetail'>
           <h2 className='titleItemDetail' >{props.title}</h2>
-          <p className='authorItemDetail' > {props.author} </p>
+          <Link to={`/author/${props.author}`}>
+            <p className='authorItemDetail' > {props.author} </p>
+          </Link>
           <p className='editorialItemDetail' >{props.editorial}</p>
           <p className='priceItemDetail' >${props.price} </p>
           <ItemCounter stockValue={props.stock} setCount ={setCount}/>

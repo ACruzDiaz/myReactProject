@@ -8,9 +8,12 @@ article.bagItems{
   justify-content: space-between;
   & > div.imgContainer{
     width: 30%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
     img{
       object-fit: cover;
-      width: 100px;
+      width: 120px;
     }
   }
 
@@ -22,5 +25,12 @@ article.bagItems{
     justify-content: center;
     align-items: center;
     text-align: center;
+  }
+
+  &>div.deleteContainer{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
   }
 }
