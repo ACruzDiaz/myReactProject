@@ -25,7 +25,7 @@ const ItemDetail = (props) => {
             <p className='authorItemDetail' > {props.author} </p>
           </Link>
           <p className='editorialItemDetail' >{props.editorial}</p>
-          <p className='priceItemDetail' >${props.price} </p>
+          <p className='priceItemDetail' >$ {Number.parseFloat(props.price).toFixed(2)}</p>
           <ItemCounter stockValue={props.stock} setCount ={setCount}/>
           {props.stock > 0 ? 
           <button type='button' onClick={addToBagHandler} className='vaciarCarrito'>Agregar a la bolsa</button>:

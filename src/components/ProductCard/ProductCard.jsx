@@ -18,7 +18,7 @@ const ProductCard = (props) =>{
       <p className='authorProductCard' > {props.author} </p>
     </Link>
     <p className='editorialProductCard' >{props.editorial}</p>
-    <p className='priceProductCard' >{props.price} </p>
+    <p className='priceProductCard' >${Number.parseFloat(props.price).toFixed(2)}</p>
   </article>
 }
 
